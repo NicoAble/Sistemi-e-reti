@@ -11,7 +11,7 @@ def leggiFile(nome_file):
     sommaPTot=100
     sommaP=0
     somma=0
-    for riga in lista_righe[1:]:
+    for riga in lista_righe[:]:
         if(riga[-1]=="\n"):
             riga_senza_linefeed=riga[:-1] #senza \n
         else: riga_senza_linefeed=riga
@@ -24,7 +24,7 @@ def leggiFile(nome_file):
         #print(id, nome)
         diz_mat["data"].append(data)
         diz_mat["cognome"].append(cognome)
-        diz_mat["quota"].append(quota)
+        diz_mat["quota"].append(int(quota))
         somma+=int(quota)
         if(cognome=="Abello"):
             sommaP+=int(quota)
@@ -42,11 +42,35 @@ def leggiFile(nome_file):
 
 
     return diz_mat
+def trovaIndice(lista_cognome1, k):
+    count=0
+    for c in lista_cognome1:
+        if c==k: return count
+        else: count+=1  
+
+
+def pagamento(diz):
+    lista_cognome=diz["cognome"]
+    lista_quota=diz["quota"]
+    lista_cognome1=[]
+    lista_quota1=[]
+    
+    c=0
+    for k, v in zip(lista_cognome, lista_quota):
+        if not k in lista_cognome1: 
+            lista_cognome1.append(k)
+            lista_quota1.append(v)
+        else:
+            i=trovaIndice(lista_cognome1, k)
+            lista_quota1[i]+=v
+    for cogn, qu in zip(lista_cognome1, lista_quota1):
+        print(cogn, qu)
+        if qu!=100: print(f"--> da controllare")
 
 def main():
     diz=leggiFile("4AROB_GITA.csv")
     #print(diz)
+    pagamento(diz)
 
 if __name__ =="__main__":
     main()
-
