@@ -12,12 +12,12 @@ def tabellaPitagorica():
     for k in mat:
         for t in k:
             print(t, end=" ")
-            file.write(f"{t} ")
+            file.write(f"{t}\t")
         print(f"\n")
         file.write(f"\n")
         #file.write(f"{k}\n")
         #print(f"{k}\n")
-    exit()
+    #exit()
     
     file.close()
 
