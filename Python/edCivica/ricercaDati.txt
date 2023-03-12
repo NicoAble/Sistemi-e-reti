@@ -1,0 +1,13 @@
+Mese		temp. med.	giacca	scuola	videogame
+Gennaio	12° / 7°	31		17		31
+Febbraio	14° / 8°	28		21		28
+Marzo		18° / 11°	15		23		31
+Aprile	20° / 13°	0		14		30
+Maggio	25° / 17°	0		22		31
+Giugno	29° / 21°	0		9		30
+Luglio 	32° / 24°	0		0		31
+Agosto	31° / 23°	0		0		31
+Settembre	27° / 20°	15		21		30
+ottobre 	21° / 16°	15		21		31
+Novembre	16° / 11°	30		21		30
+Dicembre	13° / 8°	31		14		31
