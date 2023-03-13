@@ -1,23 +1,3 @@
-import pygame
-from pygame.locals import *
-
-pygame.init()
-screen = pygame.display.set_mode((800, 600))
-clk = pygame.time.Clock()
-
-# carichiamo il font e lo assegniamo alla variabile fnt
-fnt = pygame.font.SysFont("Times New Roman", 432)
-
-
-
-# ciclo principale
-done = False
-while not done:
-    for ev in pygame.event.get():
-        if ev.type == QUIT:
-            done = True
-pygame.quit()
-
 def Leggi_file(nome_file):
     """La funzione legge i file"""
 
@@ -100,31 +80,6 @@ def PrintMatriceAdiacente(mat):
         print(k)
     return matAd    
 
-def Pygame(mat):
-    # inizializziamo una string vuota
-    s = ""
-
-    # ciclo principale
-    done = False
-    while not done:
-        # sottociclo degli eventi
-        for ev in pygame.event.get():
-            if ev.type == QUIT:
-                done = True
-            elif ev.type == KEYDOWN:
-                s = ev.unicode
-
-        # scriviamo s e otteniamo la Surface surf_text
-        surf_text = fnt.render(s, True, "yellow")
-
-        # disegniamo surf_text sullo schermo
-        screen.fill((0, 0, 160))
-        screen.blit(surf_text, (100, 100))
-        pygame.display.flip()
-
-        clk.tick(30)
-    pygame.quit()
-
 
 def main():
     l = Leggi_file("Pianta.csv")
@@ -137,7 +92,6 @@ def main():
     #print(matrice)
     #exit()
     mat= PrintMatriceAdiacente(matrice)
-    Pygame(mat)
     
 
 if __name__ =="__main__": #"__" = Dunder
